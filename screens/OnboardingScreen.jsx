@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
     color: '#FFFFFF',
     textAlign: 'left',
   },
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#FFFFFF',
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
     fontSize: 16,
     marginRight: 8,
     flex: 1,
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   disclaimer: {
     color: '#FFFFFF',
     fontSize: 12,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
     textAlign: 'center',
   },
   link: {

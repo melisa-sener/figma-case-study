@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     top: 12,
     left: 16,
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
     color: '#FFFFFF',
     textShadowColor: 'rgba(0, 0, 0, 0.3)',
     textShadowOffset: { width: 2, height: 2 },
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   promptText: {
     color: '#FFFFFF',
     fontSize: 14,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
   },
   watermarkRow: {
     backgroundColor: '#00111C',
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   watermarkLabel: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
   },
   footer: {
     flexDirection: 'row',
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   actionLabel: {
     color: '#FFFFFF',
     fontSize: 12,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
     marginTop: 6,
   },
 });

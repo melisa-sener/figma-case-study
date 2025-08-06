@@ -82,17 +82,17 @@ const styles = StyleSheet.create({
   title: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
   },
   optional: {
     color: '#DEE2E6',
     fontSize: 12,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
   },
   subtitle: {
     color: '#DEE2E6',
     fontSize: 12,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
     marginTop: 4,
     marginBottom: 12,
   },
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   ratioText: {
     color: '#FFFFFF',
     fontSize: 12,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
   },
   motionHeader: {
     flexDirection: 'row',
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   motionValue: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
   },
   slider: {
     width: '100%',
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   },
   saveText: {
     color: '#FFFFFF',
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
     fontSize: 16,
   },
 });

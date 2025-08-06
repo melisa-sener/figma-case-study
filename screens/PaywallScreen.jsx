@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   },
   video: {
     ...StyleSheet.absoluteFillObject,
-    zIndex: -1,
+    zIndex: -1, 
   },
   gradient: {
     ...StyleSheet.absoluteFillObject,
@@ -161,21 +161,21 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   restoreText: {
-    color: '#fff',
+    color: '#FFFFFF',
     fontSize: 13,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Regular',
   },
   title: {
     color: '#FCFCFD',
     fontSize: 24,
-    fontWeight: '600',
+    fontFamily: 'Poppins-SemiBold',
     textAlign: 'center',
     marginBottom: 10,
   },
   subtitle: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
     textAlign: 'center',
     marginBottom: 14,
   },
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   feature: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
     marginBottom: 8,
     textAlign: 'left',
   },
@@ -211,9 +211,9 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
   planTitle: {
-    color: '#fff',
+    color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: '600',
+    ffontFamily: 'Poppins-SemiBold',
   },
   planRow: {
     flexDirection: 'row',
@@ -224,44 +224,44 @@ const styles = StyleSheet.create({
   planSubText: {
     color: '#ADB5BD',
     fontSize: 12,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
     marginBottom: 2,
   },
   planPrice: {
-    color: '#fff',
+    color: '#FFFFFF',
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
     marginBottom: 2,
   },
   planPriceSuffix: {
     fontSize: 14,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
     color: '#ADB5BD',
     },
   planCredits: {
     color: '#ADB5BD',
     fontSize: 12,
-    fontWeight: '300',
+    fontFamily: 'Poppins-Regular',
     fontStyle: 'italic',
   },
   badge: {
     position: 'absolute',
     top: 12,
     right: 12,
-    fontSize: 10,
+    fontSize: 12,
     paddingHorizontal: 8,
     paddingVertical: 2,
     borderRadius: 8,
-    fontWeight: '600',
+    fontFamily: 'Poppins-Medium',
     overflow: 'hidden',
   },
   badgeOrange: {
     backgroundColor: '#FF6D00',
-    color: '#fff',
+    color: '#FFFFFF',
   },
   badgeDark: {
-    backgroundColor: '#2E2E2E',
-    color: '#fff',
+    backgroundColor: '#3F4E59',
+    color: '#FFFFFF',
   },
   bottomSection: {
     alignItems: 'center',
@@ -279,8 +279,9 @@ const styles = StyleSheet.create({
     marginRight: 6,
     },
   note: {
-    color: '#aaa',
+    color: '#ADB5BD',
     fontSize: 12,
+    fontFamily: 'Poppins-Regular',
   },
   upgradeBtn: {
     backgroundColor: '#FF6D00',
@@ -293,7 +294,7 @@ const styles = StyleSheet.create({
   upgradeText: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
     textAlign: 'center',
   },
   links: {
@@ -304,7 +305,7 @@ const styles = StyleSheet.create({
   link: {
     color: '#FF6D00',
     fontSize: 12,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
     textDecorationLine: 'underline',
   },
   separator: {

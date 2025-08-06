@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
   logo: {
     color: '#FFFFFF',
     fontSize: 20,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
   },
   headerRight: {
     flexDirection: 'row',
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
   },
   proText: {
     color: '#FFFFFF',
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
     fontSize: 14,
     marginLeft: 4,
   },
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
   },
   promptContainer: {
     backgroundColor: '#00111C',
@@ -250,13 +250,14 @@ const styles = StyleSheet.create({
   promptInput: {
     color: '#DEE2E6',
     fontSize: 14,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
     minHeight: 100,
     textAlignVertical: 'top',
   },
   charCount: {
     color: '#9CA3AF',
     fontSize: 12,
+    fontFamily: 'Poppins-Regular',
     textAlign: 'right',
     marginTop: 8,
   },
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
   inspireText: {
     color: '#FFFFFF',
     fontSize: 12,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
   },
   styleHeader: {
     paddingHorizontal: 12,
@@ -281,7 +282,7 @@ const styles = StyleSheet.create({
   sectionSubtitle: {
     color: '#DEE2E6',
     fontSize: 12,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
     lineHeight: 18,
     marginTop: 8,
   },
@@ -306,7 +307,7 @@ const styles = StyleSheet.create({
   styleLabel: {
     color: '#FFFFFF',
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
     textAlign: 'center',
     marginTop: 8,
   },
@@ -334,13 +335,13 @@ const styles = StyleSheet.create({
   advancedText: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: 'Poppins-Medium',
     marginLeft: 8,
   },
   optionalText: {
     color: '#DEE2E6',
     fontSize: 14,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
   },
   generateBtn: {
     backgroundColor: '#0B0B0F',
@@ -351,7 +352,7 @@ const styles = StyleSheet.create({
   },
   generateText: {
     color: '#FFFFFF',
-    fontWeight: '600',
+    fontFamily: 'Poppins-Medium',
     fontSize: 16,
   },
   exploreContainer: {
@@ -386,7 +387,7 @@ const styles = StyleSheet.create({
   explorePrompt: {
     color: '#E9ECEF',
     fontSize: 14,
-    fontWeight: '400',
+    fontFamily: 'Poppins-Regular',
     textShadowColor: 'rgba(0, 0, 0, 0.3)',
     textShadowRadius: 4,
   },
@@ -405,7 +406,7 @@ const styles = StyleSheet.create({
   tryPromptText: {
     color: '#FFFFFF',
     fontSize: 12,
-    fontWeight: '500',
+    fontFamily: 'Poppins-Medium',
     marginLeft: 4,
   },
 });
