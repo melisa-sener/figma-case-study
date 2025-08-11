@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useVideoPlayer, VideoView } from 'expo-video';
@@ -7,8 +7,10 @@ import Feather from '@expo/vector-icons/Feather';
 
 const videoSource = require('../assets/videos/main-video.mp4');
 
-export default function PaywallScreen({ navigation }) {
-  const [selectedPlan, setSelectedPlan] = useState();
+export default function PaywallScreen({ route, navigation }) {
+  const [selectedPlan, setSelectedPlan] = useState('annual');
+
+  const isNavigateFromOnboarding = !!route?.params?.isNavigateFromOnboarding;
 
   const player = useVideoPlayer(videoSource, (player) => {
     player.loop = true;
@@ -16,6 +18,14 @@ export default function PaywallScreen({ navigation }) {
     player.staysActiveInBackground = false;
     player.play();
   });
+
+  const handleClose = useCallback(() => {
+    if (isNavigateFromOnboarding) {
+      navigation.navigate('Home');
+    } else {
+      navigation.goBack();
+    }
+  }, [isNavigateFromOnboarding, navigation]);
 
   return (
     <>
@@ -29,14 +39,21 @@ export default function PaywallScreen({ navigation }) {
       />
 
       <LinearGradient
-        colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.6)', '#0B0B0F']}
+        colors={[
+          'rgba(0,0,0,0)',
+          'rgba(0,0,0,0)',
+          'rgba(0,0,0,0.85)',
+          '#101417'
+        ]}
+        locations={[0, 0.40, 0.50, 1]}
         style={styles.gradient}
       />
+
 
       <SafeAreaView style={styles.container}>
         {/* Top Bar */}
         <View style={styles.topBar}>
-          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <TouchableOpacity onPress={handleClose}>
             <Feather name="x" size={24} color="#fff" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.restoreBtn}>
@@ -213,7 +230,7 @@ const styles = StyleSheet.create({
   planTitle: {
     color: '#FFFFFF',
     fontSize: 16,
-    ffontFamily: 'Poppins-SemiBold',
+    fontFamily: 'Poppins-SemiBold',
   },
   planRow: {
     flexDirection: 'row',

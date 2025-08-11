@@ -14,7 +14,11 @@ export default function AppNavigator() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Onboarding" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-        <Stack.Screen name="Paywall" component={PaywallScreen} />
+        <Stack.Screen
+          name="Paywall"
+          component={PaywallScreen}
+          options={{ animation: 'slide_from_bottom' }}
+        />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen
           name="BottomSettings"

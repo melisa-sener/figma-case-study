@@ -71,7 +71,11 @@ const OnboardingScreen = () => {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={step < 2 ? handleNext : () => navigation.navigate('Paywall')}
+          onPress={
+            step < 2
+              ? handleNext
+              : () => navigation.navigate('Paywall', { isNavigateFromOnboarding: true })
+          }
         >
           <Text style={styles.buttonText}>
             {step === 0 ? 'Get Started' : step === 1 ? 'Next' : 'Finished'}

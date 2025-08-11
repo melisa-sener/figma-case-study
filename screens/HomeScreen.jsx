@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, FlatList, Dimensions, ScrollView } from 'react-native';
-import { SafeAreaView } from "react-native-safe-area-context";
+import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, FlatList, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { useVideoPlayer, VideoView } from 'expo-video';
+import ExploreCard from '../components/ExploreCard';
 
-const screenWidth = Dimensions.get('window').width;
+const horizontalPadding = 12;
 
 const styleOptions = [
   { id: '1', label: '35 mm', thumbnail: require('../assets/images/35mm.png') },
@@ -48,37 +48,6 @@ const StyleThumbnailTile = ({ thumbnail, label, isSelected, onPress }) => (
   </TouchableOpacity>
 );
 
-const ExploreCard = ({ video, prompt, heightRatio = 1.5 }) => {
-  const player = useVideoPlayer(video, (player) => {
-    player.loop = true;
-    player.muted = true;
-    player.play();
-  });
-
-  const cardWidth = (screenWidth - 12 * 2 - 12) / 2;
-  const cardHeight = 140 * heightRatio;
-
-  return (
-    <TouchableOpacity style={[styles.exploreCard, { width: cardWidth, height: cardHeight }]} activeOpacity={0.9}>
-      <VideoView 
-        player={player} 
-        nativeControls={false} 
-        style={{flex:1, width:cardWidth, height:cardHeight}}
-        contentFit='cover'
-      />
-
-      <View style={styles.tryPromptTag}>
-        <Ionicons name="sparkles-sharp" size={12} color="#FFFFFF" />
-        <Text style={styles.tryPromptText}>Try Prompt</Text>
-      </View>
-
-      <View style={styles.exploreOverlay}>
-        <Text style={styles.explorePrompt} numberOfLines={3}>{prompt}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-};
-
 export default function HomeScreen({ navigation }) {
   const [prompt, setPrompt] = useState('');
   const [selectedStyle, setSelectedStyle] = useState(null);
@@ -87,11 +56,15 @@ export default function HomeScreen({ navigation }) {
     <SafeAreaView style={styles.container}>
       <StatusBar />
       <ScrollView contentContainerStyle={{ paddingBottom: 60 }} showsVerticalScrollIndicator={false}>
+        
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.logo}>Video AI</Text>
           <View style={styles.headerRight}>
-            <TouchableOpacity style={styles.proButton} onPress={() => navigation.navigate('Paywall')}>
+            <TouchableOpacity
+              style={styles.proButton}
+              onPress={() => navigation.navigate('Paywall')}
+            >
               <Ionicons name="sparkles-sharp" size={14} color="#FFFFFF" />
               <Text style={styles.proText}>PRO</Text>
             </TouchableOpacity>
@@ -137,7 +110,6 @@ export default function HomeScreen({ navigation }) {
           keyExtractor={(item) => item.id}
           horizontal
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.styleListContainer}
           ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
           renderItem={({ item }) => (
             <StyleThumbnailTile
@@ -174,17 +146,18 @@ export default function HomeScreen({ navigation }) {
         {/* Explore Beyond */}
         <View style={styles.exploreContainer}>
           <Text style={styles.sectionTitle}>Explore Beyond</Text>
-          <View style={styles.gridContainer}>
-            <View style={{ flex: 1, marginRight: 6, gap: 12 }}>
+          <View style={{ flexDirection: 'row', gap: 6 }}>
+            <View style={{ flex: 1 }}>
               <ExploreCard {...explorePrompts[0]} heightRatio={1.2} />
               <ExploreCard {...explorePrompts[2]} heightRatio={1.6} />
             </View>
-            <View style={{ flex: 1, marginLeft: 6, gap: 12 }}>
+            <View style={{ flex: 1 }}>
               <ExploreCard {...explorePrompts[1]} heightRatio={1.6} />
               <ExploreCard {...explorePrompts[3]} heightRatio={1.2} />
             </View>
           </View>
         </View>
+
       </ScrollView>
     </SafeAreaView>
   );
@@ -194,14 +167,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0B0B0F',
-    paddingHorizontal: 12,
+    paddingHorizontal: horizontalPadding,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginVertical: 10,
-    paddingHorizontal: 12,
   },
   logo: {
     color: '#FFFFFF',
@@ -233,7 +205,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 16,
     marginBottom: 8,
-    paddingHorizontal: 12,
   },
   sectionTitle: {
     color: '#FFFFFF',
@@ -245,7 +216,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 16,
     marginBottom: 16,
-    marginHorizontal: 12,
   },
   promptInput: {
     color: '#DEE2E6',
@@ -276,7 +246,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Medium',
   },
   styleHeader: {
-    paddingHorizontal: 12,
     marginTop: 8,
   },
   sectionSubtitle: {
@@ -285,10 +254,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
     lineHeight: 18,
     marginTop: 8,
-  },
-  styleListContainer: {
-    paddingHorizontal: 12,
-    paddingVertical: 12,
   },
   styleTile: {
     width: 120,
@@ -323,7 +288,6 @@ const styles = StyleSheet.create({
   },
   advancedBtn: {
     marginTop: 24,
-    marginHorizontal: 12,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -357,56 +321,5 @@ const styles = StyleSheet.create({
   },
   exploreContainer: {
     marginTop: 12,
-    paddingHorizontal: 12,
-  },
-  gridContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    columnGap: 12,
-  },
-  exploreCard: {
-    borderRadius: 12,
-    overflow: 'hidden',
-    backgroundColor: '#001523',
-    position: 'relative',
-    marginTop: 12,
-  },
-  exploreVideo: {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-  },
-  exploreOverlay: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    padding: 12,
-    zIndex: 2,
-  },
-  explorePrompt: {
-    color: '#E9ECEF',
-    fontSize: 14,
-    fontFamily: 'Poppins-Regular',
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
-    textShadowRadius: 4,
-  },
-  tryPromptTag: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    borderRadius: 100,
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    zIndex: 3,
-  },
-  tryPromptText: {
-    color: '#FFFFFF',
-    fontSize: 12,
-    fontFamily: 'Poppins-Medium',
-    marginLeft: 4,
   },
 });

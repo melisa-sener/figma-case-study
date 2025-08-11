@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import AppNavigator from './navigation/AppNavigator.jsx'; 
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
+import { View, Image, StyleSheet } from 'react-native';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-
   const [fontsLoaded] = useFonts({
     'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
     'Poppins-Bold': require('./assets/fonts/Poppins-Bold.ttf'),
@@ -16,7 +16,6 @@ export default function App() {
     'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf'),
     'Poppins-Light': require('./assets/fonts/Poppins-Light.ttf'),
     'Poppins-ExtraLight': require('./assets/fonts/Poppins-ExtraLight.ttf'),
-
   });
 
   useEffect(() => {
@@ -26,10 +25,29 @@ export default function App() {
   }, [fontsLoaded]);
 
   if (!fontsLoaded) {
-    return null; 
+    return (
+      <View style={styles.splashContainer}>
+        <Image
+          source={require('./assets/images/frame.png')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+      </View>
+    );
   }
 
   return <AppNavigator />;
-
-  
 }
+
+const styles = StyleSheet.create({
+  splashContainer: {
+    flex: 1,
+    backgroundColor: '#000000',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 120,
+    height: 120,
+  },
+});

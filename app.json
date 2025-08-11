@@ -7,25 +7,10 @@
     "icon": "assets/images/frame.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "splash": {
-      "image": "assets/images/frame.png",
-      "resizeMode": "cover",
-      "backgroundColor": "#000000"
-    },
     "ios": {
-      "supportsTablet": true,
-      "splash": {
-        "image": "assets/images/frame.png",
-        "resizeMode": "cover",
-        "backgroundColor": "#000000"
-      }
+      "supportsTablet": true
     },
     "android": {
-      "splash": {
-        "image": "assets/images/frame.png",
-        "resizeMode": "cover",
-        "backgroundColor": "#000000"
-      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#000000"
@@ -36,6 +21,16 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "splash": {
+            "image": "assets/images/frame.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#000000"
+          }
+        }
+      ],
       "expo-font"
     ]
   }
